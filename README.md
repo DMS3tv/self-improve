@@ -78,3 +78,7 @@ goose run --recipe self-improve --params target="what to review" --params focus=
 | `goose/self-improve.yaml` | Optional goose recipe |
 
 `session_log.py` needs only Python 3.
+
+## License
+
+MIT. See `LICENSE`.
