@@ -1,0 +1,40 @@
+version: 1.0.0
+title: Self-improve
+description: Start a clean session that looks back at how a recent task was handled and proposes numbered changes to the agent's own setup (hints, skills, scripts, recipes, config) so future tasks go better. It does not change the project. Reply with the numbers to apply.
+parameters:
+  - key: target
+    input_type: string
+    requirement: optional
+    default: "the most recent work in this folder"
+    description: What to look back at (files, folder, a git diff, a goose session id, or a description)
+  - key: goal
+    input_type: string
+    requirement: optional
+    default: ""
+    description: What that work was supposed to achieve, if you want to state it
+  - key: focus
+    input_type: string
+    requirement: optional
+    default: ""
+    description: Anything specific to look at, e.g. "why it took so long"
+extensions:
+  - type: builtin
+    name: developer
+    display_name: Developer
+    timeout: 300
+    bundled: true
+  - type: platform
+    name: skills
+    display_name: Skills
+    bundled: true
+instructions: |
+  You are a fresh reviewer with no history of this work. Load the "self-improve" skill
+  with the skills tool and follow its steps in order. Do not skip step 1 (pin the goal
+  before reading old notes), step 6 (turn lessons into setup gaps) or step 7 (check each
+  proposal against the existing setup and the other proposals). Propose changes
+  only to the agent's setup, never to the project. Change nothing until the user replies
+  with the proposal numbers to apply.
+prompt: |
+  Look back at: {{ target }}
+  {% if goal %}The goal of that work: {{ goal }}{% endif %}
+  {% if focus %}Focus: {{ focus }}{% endif %}
