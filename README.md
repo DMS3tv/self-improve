@@ -4,8 +4,8 @@ A skill for AI coding agents. It reviews how a finished task was handled and pro
 changes to the agent's own setup so later tasks go better. It does not change the project
 it reviews.
 
-Works with any harness that loads `SKILL.md` skills (goose, Claude Code, Codex, Qwen Code,
-others) and any model.
+Written for any harness that loads `SKILL.md` skills (goose, Claude Code, Codex, Qwen Code,
+others) and any model. Tested with goose and a local model.
 
 ## What it does
 
@@ -47,14 +47,14 @@ the changes, checks that no rules now contradict each other, and reports how to 
 
 ## Install
 
-Clone into your harness's skills folder:
+Clone into your harness's skills folder, for example:
 
 ```bash
-git clone https://github.com/DMS3tv/self-improve ~/.agents/skills/self-improve
+git clone https://github.com/DMS3tv/self-improve ~/.agents/skills/self-improve   # goose
+git clone https://github.com/DMS3tv/self-improve ~/.claude/skills/self-improve   # Claude Code
 ```
 
-Other harnesses: symlink it into their skills folder, e.g.
-`ln -s ~/.agents/skills/self-improve ~/.claude/skills/self-improve`.
+Using several harnesses: clone once and symlink it into the others' skills folders.
 `references/harnesses.md` lists the usual folders per harness.
 
 ## Use

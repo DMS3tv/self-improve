@@ -83,6 +83,8 @@ def goose(arg):
             print(f"{sid}  {upd}  {n:4d} msgs  {name}")
         print("(the newest one is probably the current session)")
         return
+    if not db.execute("select 1 from sessions where id = ?", (arg,)).fetchone():
+        sys.exit(f"no goose session '{arg}'; run with --list")
     out = os.path.join(tempfile.gettempdir(), f"session_goose_{arg}.md")
     tools = errs = 0
     with open(out, "w") as w:
