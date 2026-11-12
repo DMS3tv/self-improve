@@ -1,5 +1,7 @@
 # self-improve
 
+![self-improve: a finished task is reviewed in a fresh session and turned into changes to the agent's setup](assets/header.svg)
+
 A skill for AI coding agents. It reviews how a finished task was handled and proposes
 changes to the agent's own setup so later tasks go better. It does not change the project
 it reviews.

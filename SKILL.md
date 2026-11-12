@@ -138,8 +138,8 @@ How to write proposals:
 - Each one ready to apply as written: the file and the actual text. "Be more careful" is
   not a proposal; "add this line to <rules file>" is.
 - Never a change to the project.
-- Always-on text is paid for on every turn. Keep it to a line or two per lesson; anything
-  longer belongs in a skill.
+- Always-on text is paid for on every turn: at most two lines per proposal. If it needs
+  more, propose a skill instead.
 - Three good proposals beat ten weak ones. Order by value. Zero is fine if nothing is missing.
 
 Then stop and wait for the user's reply.
