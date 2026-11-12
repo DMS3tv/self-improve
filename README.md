@@ -3,8 +3,8 @@
 ![self-improve: a finished task is reviewed in a fresh session and turned into changes to the agent's setup](assets/header.svg)
 
 A skill for AI coding agents. It reviews how a finished task was handled and proposes
-changes to the agent's own setup so later tasks go better. It does not change the project
-it reviews.
+changes to the agent's own setup so later tasks go better. Its proposals target the agent's
+setup, not the project it reviews.
 
 Written for any harness that loads `SKILL.md` skills (goose, Claude Code, Codex, Qwen Code,
 others) and any model. Tested with goose and a local model.
@@ -24,7 +24,11 @@ Run from a fresh session that did not do the work:
 6. Compares every proposal with the existing setup and with the other proposals.
    Duplicates are dropped, overlaps extend existing text, contradictions are weighed
    and resolved (replace, scope, or drop).
-7. Reports, then waits. Nothing is changed until the user picks proposals.
+7. Reports, then waits for the user to pick proposals.
+
+The skill instructs the model not to modify the project or apply changes unasked, but a
+model can ignore instructions. Run it on version-controlled or backed-up work, and read
+each proposal before approving it.
 
 ## Output
 
