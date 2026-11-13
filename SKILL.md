@@ -89,8 +89,13 @@ runs; a lesson may belong in more than one.
 Then audit the existing rules against the record: for each rule that applied to this
 task (especially recently added ones), find the moment it should have fired (new input
 arrived, a check was claimed, context ran low) and say whether it did. A rule that
-existed and was not followed is a finding; it goes under "no change" below or gets
-rewritten to be more concrete.
+existed and was not followed is a finding. Rewording an ignored rule is allowed once; if it
+was already reworded (or its date tag shows it is not new) and was still ignored, do not
+reword it again: replace it with a script, check or hook that enforces it, or remove it.
+
+Also look for rules to cut: ones this task shows are redundant, wrong, or never relevant.
+Rules carry a date tag (see step 9); old rules that have not mattered in recent tasks
+are candidates for removal.
 
 For each gap, pick the narrowest place a fix belongs:
 - **always-on rules** (paid on every turn of every session: short, broadly useful lines only);
@@ -98,7 +103,9 @@ For each gap, pick the narrowest place a fix belongs:
 - **a script or tool** for a step the agent did by hand, slowly or repeatedly;
 - **a setting** (effort, compaction, permissions, hooks, extensions);
 - **no change**: the lesson is already covered and was not followed. Say which rule was
-  ignored, and whether it needs to be stronger, shorter, or moved where it will be seen.
+  ignored, and whether it needs rewording (first time), enforcing by a tool, or removing.
+Prefer a script or tool over a rule whenever one can do the job: a tool that makes the
+right action easy beats another sentence asking for it.
 
 ### 7. Check proposals against what exists, and against each other
 Before writing any proposal, compare it with every existing rule, skill, setting and
@@ -115,6 +122,11 @@ tool you found in step 6, and with the other proposals:
   options; the user decides.
 - **Cross-harness drift**: if the user runs several harnesses, check whether the same rule
   already exists in another one with different wording. Prefer one shared version.
+- **Budget**: always-on rules files have a size budget, written as a line in the file
+  itself, e.g. `# rules budget: 120 lines`. If there is none, propose adding one and let
+  the user pick the number (larger models tolerate longer rules; small local models
+  follow fewer lines well). At or over budget, every proposal that adds lines must also
+  remove or merge at least as many.
 Record the outcome on each proposal (step 8). Never apply a change that leaves two rules
 contradicting each other.
 
@@ -141,6 +153,11 @@ Proposed changes (reply with the numbers to apply)
    Fits with: none found / extends <existing rule> / replaces <existing rule> /
               conflicts with <rule or proposal N>: the weighing, and the recommendation
    Cost/risk: what it costs to keep (context on every turn, speed) and what could go wrong
+
+Proposed removals (same numbering; reply with numbers)
+N. <file>: the exact line(s) to cut or merge — why (redundant / ignored twice / stale)
+
+Rules budget: <lines used> / <budget>, after these changes: <lines>
 ```
 
 How to write proposals:
@@ -157,6 +174,8 @@ Then stop and wait for the user's reply.
 - Apply only the numbers the user chose, exactly as proposed (or as they amended),
   including any removals or replacements the proposal named.
 - Back up any existing file before editing it (`cp file file.bak-YYYYMMDD`).
+- End each added or rewritten always-on rule with a short tag: `(YYYY-MM, <task>)`, so
+  later reviews can tell new rules from old and spot stale ones.
 - Re-read every file you changed and confirm no two rules now contradict each other.
 - Verify each change took: run a new script once, use the harness's own validator where
   one exists (a recipe or config check), and for rules or skills confirm the file reads

@@ -25,7 +25,10 @@ Run from a fresh session that did not do the work:
 6. Compares every proposal with the existing setup and with the other proposals.
    Duplicates are dropped, overlaps extend existing text, contradictions are weighed
    and resolved (replace, scope, or drop).
-7. Reports, then waits for the user to pick proposals.
+7. Keeps the rules from growing: checks whether existing rules were followed, replaces
+   rules ignored twice with a script or check, proposes removals, and holds rules files
+   to a size budget you set (`# rules budget: N lines`).
+8. Reports, then waits for the user to pick proposals.
 
 The skill instructs the model not to modify the project or apply changes unasked, but a
 model can ignore instructions. Run it on version-controlled or backed-up work, and read
@@ -47,6 +50,9 @@ Proposed changes (reply with the numbers to apply)
    Change:    exact file and exact text
    Fits with: none / extends X / replaces X / conflicts with X, and the recommendation
    Cost/risk: per-turn context cost, what could go wrong
+
+Proposed removals    lines to cut or merge, and why
+Rules budget         lines used / budget, before and after
 ```
 
 Reply with the numbers to apply (e.g. "1 and 3"). The agent backs up each file, applies
