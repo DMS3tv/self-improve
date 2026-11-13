@@ -8,8 +8,9 @@ better. Its proposals target the agent's setup, not the project it reviews. Each
 also looks for rules to cut, so the setup does not grow without limit.
 
 Written for any harness that loads `SKILL.md` skills (goose, Claude Code, Codex, Qwen Code,
-others) and any model. Tested with goose and a local model: applied proposals changed
-the agent's later behaviour, but one review does not catch everything; a second run finds more.
+others) and any model. Tested with goose and Qwen Code on a local model: applied proposals
+changed the agent's later behaviour, but one review does not catch everything; a second run
+finds more.
 
 ## What it does
 
