@@ -7,7 +7,8 @@ changes to the agent's own setup so later tasks go better. Its proposals target 
 setup, not the project it reviews.
 
 Written for any harness that loads `SKILL.md` skills (goose, Claude Code, Codex, Qwen Code,
-others) and any model. Tested with goose and a local model.
+others) and any model. Tested with goose and a local model: applied proposals changed
+the agent's later behaviour, but one review does not catch everything; a second run finds more.
 
 ## What it does
 

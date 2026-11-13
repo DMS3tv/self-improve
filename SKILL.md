@@ -44,6 +44,9 @@ logs or the old transcript yet.
 ### 2. Look at the result first-hand
 Open the actual outputs: run the code or tests, read the document as its reader would,
 view the file. Note what it does, not what it claims. Did it meet the goal?
+Check completeness, not just quality: does the output cover the whole target (every
+part asked for, every input that was provided)? Accurate but partial is "partly met".
+Read the work's own caveats ("not done", "assumed", "may extend past") as claims to check.
 
 ### 3. Spot-check the key claims
 List the 2-4 claims the result most depends on (it works, it is accurate, it is
@@ -82,6 +85,12 @@ Then take stock of the setup as it is now (see `references/harnesses.md` for whe
 lives): read the always-on rules files in full, list the skills and skim the relevant
 ones, check settings, tools and any custom system prompt. Note which harnesses the user
 runs; a lesson may belong in more than one.
+
+Then audit the existing rules against the record: for each rule that applied to this
+task (especially recently added ones), find the moment it should have fired (new input
+arrived, a check was claimed, context ran low) and say whether it did. A rule that
+existed and was not followed is a finding; it goes under "no change" below or gets
+rewritten to be more concrete.
 
 For each gap, pick the narrowest place a fix belongs:
 - **always-on rules** (paid on every turn of every session: short, broadly useful lines only);
